@@ -1,0 +1,23 @@
+
+
+<div class="flex flex-col ml-10 w-1/2">
+  <p style="color: green"><%= notice %></p>
+  <h1 class="text-4xl font-semibold mb-8">Tickets</h1>
+
+  <div id="tickets">
+    <% @tickets.each do |ticket| %>
+    <div class="border-2 border-gray-200 p-4 mb-4 w-fit">
+      <%= render ticket %>
+      <p class="underline text-blue-700">
+        <%= link_to "Show this ticket", ticket %>
+      </p>
+    </div>
+    <% end %>
+  </div>
+
+  <div class="flex flex-row justify-between w-full">
+    <%= link_to "New ticket", new_ticket_path, class: "rounded-lg border-gray-200 border-2 p-2" %>
+    <%= link_to "Back to events", events_path, class: "rounded-lg border-gray-200 border-2 p-2" %>
+  </div>
+</div>
+

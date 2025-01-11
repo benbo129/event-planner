@@ -1,0 +1,24 @@
+
+<div class="flex flex-col ml-10 w-1/2">
+  <h1 class="text-4xl font-semibold mb-8">New event</h1>
+  <br>
+  <%= form_with model: @event, url: events_path, method: :post, local: true, class: "space-y-4" do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "border rounded-lg border-black ml-4" %>
+    <br>
+    <%= f.label :start %>
+    <%= f.date_field :start, class: "border rounded-lg border-black ml-4" %>
+    <br>
+    <%= f.label :capacity %>
+    <%= f.number_field :capacity, min: 0, class: "border border-black ml-4 w-fit"%>
+    <br>
+    <%= f.submit "Submit", class: "rounded-lg bg-blue-600 text-white border-2 p-2" %>
+  <% end %>
+
+  <br>
+
+  <div>
+    <%= link_to "Back to events", events_path, class: "rounded-lg border-gray-200 border-2 p-2" %>
+  </div>
+</div>
+

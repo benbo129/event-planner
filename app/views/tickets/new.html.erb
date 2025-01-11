@@ -1,0 +1,22 @@
+<div>
+  <h1 class="text-4xl font-semibold mb-8">New ticket</h1>
+
+  <%= form_with model: @ticket, url: tickets_path, method: :post, local:true, class: "space-y-4" do |f| %>
+    <%= f.label :user %>
+    <%= f.text_field :user, class: "border rounded-lg border-black ml-4" %>
+    <br>
+    <%= f.label :category %>
+    <%= f.text_field :category, class: "border rounded-lg border-black ml-4" %>
+    <br>
+    <%= f.label :event %>
+    <%= f.collection_select :event_id, @events, :id, :name, include_blank: true, class: "ml-4" %>
+    <br>
+    <%= f.submit "Submit", class: "rounded-lg bg-blue-600 text-white border-2 p-2 mr-4" %>
+    <%= link_to "Back to tickets", tickets_path, class: "rounded-lg border-gray-200 border-2 p-2 mr-4" %>
+    <%= link_to "Back to events", events_path, class: "rounded-lg border-gray-200 border-2 p-2 mr-4" %>
+  <% end %>
+
+  <div>
+    
+  </div>
+</div>
